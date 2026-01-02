@@ -18,3 +18,14 @@ kubectl run nginx-pod(podname) --image=nginx:latest
 11. kubectl rollout history deploy/nginx-deploy
 12. kubectl create deploy deploy/nginx-new --image=nginx --dry-run=client
 13. kubectl create deployment nginx-new --image=nginx \ --dry-run=client -o yaml > deploy.yml
+14. kubectl scale rs nginx-rs --replicas=0
+15. kubectl get pod --show-labels
+
+<b> Services Commands:
+
+1. kubectl explain services
+2. kubectl create -f nodeport.yml
+3. kubectl get svc
+4. kubectl get pod -o wide
+5. kind create cluster --config=kind.yml --name=cka-cluster3
+6. kubectl get nodes
