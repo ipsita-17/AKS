@@ -29,3 +29,24 @@ kubectl run nginx-pod(podname) --image=nginx:latest
 4. kubectl get pod -o wide
 5. kind create cluster --config=kind.yml --name=cka-cluster3
 6. kubectl get nodes
+
+<c> NameSpace Commands:
+
+1. kubectl get ns
+2. kubectl get all -n=default
+3. kubectl get all -n=kube-system
+4. cd ../namespace
+5. vi ns.yml
+6. kubectl apply -f ns.yml
+7. imperative way: kubectl create ns demo
+8. kubectl create deployment nginx-demo --image=nginx -n demo
+9. kubectl create deployment nginx-test --image=nginx -n demo
+10. kubectl get pods -n=demo
+11. kubectl exec -it nginx-demo-5c86c7d69f-269ft -n demo -- sh
+12. IP: kubectl get pods -n demo -o wide
+13. kubectl scale --replicas=3 deploy/nginx-demo -n=demo
+14. kubectl scale deployment nginx-test --replicas=3 -n demo
+15. kubectl get pods -n=demo
+16. kubectl expose deploy/nginx-demo --name=svc-demo --port 80 -n=demo
+17. kubectl get svc -n=demo
+18. cat /etc/resolv.conf

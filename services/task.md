@@ -81,7 +81,7 @@ kubectl edit svc myapp
 Change:
 
 spec:
-  type: NodePort 
+  type: NodePort
 
 kubectl get svc myapp
 
