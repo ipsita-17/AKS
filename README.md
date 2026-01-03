@@ -50,3 +50,21 @@ kubectl run nginx-pod(podname) --image=nginx:latest
 16. kubectl expose deploy/nginx-demo --name=svc-demo --port 80 -n=demo
 17. kubectl get svc -n=demo
 18. cat /etc/resolv.conf
+
+<d> Multi Container Pod:
+
+1. pod.yml created: kubectl create -f pod.yml
+2. kubectl get pod
+3. kubectl describe pod myapp
+4. kubectl logs myapp-pod
+5. kubectl logs myapp-pod -c init-myservice
+6. kubectl create deploy nginx-deploy --image nginx --port 80
+8. kubectl expose deploy nginx-deploy --name myservice --port 80
+9. kubectl get pod
+10. kubectl exec -it myapp-pod -- printenv/kubectl exec -it myapp-pod -- sh
+11. kubectl expose deploy mydb --name mydb --port 80
+12. kubectl get po -w
+
+<e> DaemonSet:
+
+1. 
