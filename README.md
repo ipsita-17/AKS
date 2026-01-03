@@ -67,4 +67,15 @@ kubectl run nginx-pod(podname) --image=nginx:latest
 
 <e> DaemonSet:
 
-1. 
+1. cd daemonset
+2. kubectl create -f ds.yml
+3. kubectl get ds
+4. kubectl get ds -n kube-system
+5. kind get clusters
+6. kubectl config use-context kind-kind
+7. kind get nodes
+8. kubectl get ds -A
+9. kubectl get pods -A
+10. kubectl config use-context kind-cka-cluster3
+11. kubectl get pods -n kube-system | grep proxy
+12. kubectl get pods
