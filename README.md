@@ -115,3 +115,15 @@ Think of taints as "only you are allowed" signs on your Kubernetes nodes. A tain
 2. kubectl describe node cka-cluster2-worker | grep -i taint
 
 Tolerations: Toleration allows a pod to say, "Hey, I can handle that taint. Schedule me anyway!" You define tolerations in the pod specification to let them bypass the taints.
+
+<h> Affinity:
+
+1. kubectl create -f affinity.yml
+2. kubectl get po
+3. kubectl describe po
+4. kubectl label node
+5. kubectl get nodes
+6. kubectl label node cka-cluster2-worker disktype=ssd
+7. kubectl get nodes --show-labels
+8. kubectl describe pod redis-3
+9. 
