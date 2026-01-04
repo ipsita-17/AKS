@@ -126,4 +126,3 @@ Tolerations: Toleration allows a pod to say, "Hey, I can handle that taint. Sche
 6. kubectl label node cka-cluster2-worker disktype=ssd
 7. kubectl get nodes --show-labels
 8. kubectl describe pod redis-3
-9. 
