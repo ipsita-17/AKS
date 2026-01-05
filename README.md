@@ -108,7 +108,7 @@ Selectors filter Kubernetes objects based on their labels. This is incredibly us
 - **Labels**: Organize resources within the same or across namespaces.
 - **Namespaces**: Provide a way to isolate resources from each other within a cluster.
 
-<g> Taint: 
+<g> Taint:
 Think of taints as "only you are allowed" signs on your Kubernetes nodes. A taint marks a node with a specific characteristic, such as `"gpu=true"`. By default, pods cannot be scheduled on tainted nodes unless they have a special permission called toleration. When a toleration on a pod matches with the taint on the node then only that pod will be scheduled on that node.
 
 1. kubectl taint node cka-cluster2-worker gpu=true:NoSchedule
@@ -126,3 +126,17 @@ Tolerations: Toleration allows a pod to say, "Hey, I can handle that taint. Sche
 6. kubectl label node cka-cluster2-worker disktype=ssd
 7. kubectl get nodes --show-labels
 8. kubectl describe pod redis-3
+
+<i> Requests & Limits:
+
+1. kubectl create -f metrics-server.yml
+2. kubectl get po -n kube-system
+3. kubectl top node
+4. kubectl create ns mem-example
+5. kubectl apply -f memory-request.yml
+6. kubectl get po -n mem-example
+7. kubectl top pod memory-demo -n mem-example
+8. kubectl apply -f memory-request02.yml
+9. kubectl get po -n mem-example
+10. kubectl describe pod memory-demo-2 -n mem-example
+11. kubectl top pod memory-demo-2 -n mem-example
