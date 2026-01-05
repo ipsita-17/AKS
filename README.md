@@ -137,6 +137,18 @@ Tolerations: Toleration allows a pod to say, "Hey, I can handle that taint. Sche
 6. kubectl get po -n mem-example
 7. kubectl top pod memory-demo -n mem-example
 8. kubectl apply -f memory-request02.yml
-9. kubectl get po -n mem-example
+9. kubectl get po -n mem-example    
 10. kubectl describe pod memory-demo-2 -n mem-example
 11. kubectl top pod memory-demo-2 -n mem-example
+
+<j> Autoscaling: 
+
+1. kubectl apply -f deploy.yml
+2. kubectl get po
+3. kubectl get svc
+4. kubectl autoscale deployment php-apache --cpu-percent=50 --min=1 --max=10
+5. kubectl get hpa
+6. kubectl run -i --tty load-generator --rm --image=busybox:1.28 --restart=Never -- /bin/sh -c "while sleep 0.01; do wget -q -O- http://php-apache; done"
+7. kubectl get hpa --watch
+8. kubectl get hpa php-apache --watch
+9. kubectl autoscale deployment php-apache --cpu-percent=50 --min=1 --max=10
