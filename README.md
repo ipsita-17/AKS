@@ -137,11 +137,11 @@ Tolerations: Toleration allows a pod to say, "Hey, I can handle that taint. Sche
 6. kubectl get po -n mem-example
 7. kubectl top pod memory-demo -n mem-example
 8. kubectl apply -f memory-request02.yml
-9. kubectl get po -n mem-example    
+9. kubectl get po -n mem-example
 10. kubectl describe pod memory-demo-2 -n mem-example
 11. kubectl top pod memory-demo-2 -n mem-example
 
-<j> Autoscaling: 
+<j> Autoscaling:
 
 1. kubectl apply -f deploy.yml
 2. kubectl get po
