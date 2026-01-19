@@ -152,3 +152,13 @@ Tolerations: Toleration allows a pod to say, "Hey, I can handle that taint. Sche
 7. kubectl get hpa --watch
 8. kubectl get hpa php-apache --watch
 9. kubectl autoscale deployment php-apache --cpu-percent=50 --min=1 --max=10
+
+<k> Configmap:
+
+1. imperative: kubectl create configmap app-cm \
+  --from-literal=firstname=Ipsita \
+  --from-literal=lastname=Patra
+2. kubectl get cm app-cm
+3. kubectl describe cm app-cm
+4. kubectl create configmap app-cm   --from-file=app.config
+5.
