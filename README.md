@@ -161,4 +161,26 @@ Tolerations: Toleration allows a pod to say, "Hey, I can handle that taint. Sche
 2. kubectl get cm app-cm
 3. kubectl describe cm app-cm
 4. kubectl create configmap app-cm   --from-file=app.config
-5.
+
+<l> SSL/TLS:
+
+**To generate a key file**
+```
+openssl genrsa -out adam.key 2048
+```
+
+**To generate a csr file**
+```
+openssl req -new -key adam.key -out adam.csr -subj "/CN=adam"
+```
+
+**To approve a csr**
+```
+kubectl certificate approve <certificate-signing-request-name>
+```
+
+**To deny a csr**
+```
+kubectl certificate deny <certificate-signing-request-name>
+```
+
