@@ -184,3 +184,44 @@ kubectl certificate approve <certificate-signing-request-name>
 kubectl certificate deny <certificate-signing-request-name>
 ```
 
+<m> Authentication & Authorization:
+
+1. Making API Calls:
+To run a command against a cluster, you can use the below command
+
+ kubectl get pods --kubeconfig config
+
+2. Normally, kubectl uses your local $HOME/.kube/config file for authentication so you dont have to pass th        --kubeconfig parameter in every command. You can use below command
+
+kubectl get pods
+
+3. The below command shows an API call using raw arguments:
+
+kubectl get --raw /api/v1/namespaces/default/pods \
+  --server https://localhost:64418 \
+  --client-key adam.key \
+  --client-certificate adam.crt \
+  --certificate-authority ca.crt
+
+<n> RBAC:
+
+1. kubectl auth can-i get pod
+2. kubectl auth can-i get pod --as ipsita
+3. kubectl apply -f role.yml
+4. kubectl get role
+5. kubectl describe role pod-reader
+6. kubectl apply -f role-binding.yml
+7. kubectl get rolebinding
+8. kubectl describe rolebinding read-pods
+9. kubectl get roles -A
+10. kubectl get roles -A --no-headers | wc -l
+11. kubectl config set-credentials adam \
+  --client-key=adam.key \
+  --client-certificate=adam.crt \
+  --embed-certs=true
+12. kubectl config set-context adam \
+  --cluster=kind-lab-cluster \
+  --user=adam
+13. kubectl config get-contexts
+14. kubectl config use-context adam
+15.
