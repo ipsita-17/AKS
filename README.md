@@ -224,4 +224,42 @@ kubectl get --raw /api/v1/namespaces/default/pods \
   --user=adam
 13. kubectl config get-contexts
 14. kubectl config use-context adam
-15.
+15. curl -k https://localhost:64418/api/v1/namespaces/default/pods \
+  --key adam.key \
+  --cert adam.crt \
+  --cacert ca.crt
+16. kubectl config view --minify -o jsonpath='{.clusters[0].cluster.server}{"\n"}'
+17. curl -k https://127.0.0.1:33729/api/v1/namespaces/default/pods \
+  --key adam.key \
+  --cert adam.crt \
+  --cacert ca.crt
+
+# Create cluster role and cluster role binding
+18. kubectl create clusterrole node-reader --verb=get,list,watch --resource=nodes
+19. kubectl create clusterrolebinding node-reader-binding --clusterrole=node-reader --user=adam
+20. kubectl api-resources --namespaced=true(namespace level)
+21. kubectl api-resources --namespaced=false(cluster level)
+
+<o> Network Policies:
+
+1. kind create cluster --name=cka-new --config=kind-cluster.yml
+2. kubectl get nodes
+3. kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml
+4. kubectl get ds -n=kube-system
+5. kubectl get pods -n kube-system | grep -i weave
+6. kubectl get nodes
+7. kubectl apply -f manifest.yml
+8. kubectl get nodes --watch
+9. kubectl get pods
+10. kubectl exec -it frontend -- bash
+        curl backend:80
+        apt-get update && apt-get install telnet
+        telnet db 3306
+11. kubectl apply -f netpolicy.yml
+12. kubectl get netpol
+13. kubectl describe netpol db-test
+
+OR
+
+14. kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.31.3/manifests/calico.yaml
+15. watch kubectl get pods -l k8s-app=calico-node -A
