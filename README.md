@@ -262,4 +262,11 @@ kubectl get --raw /api/v1/namespaces/default/pods \
 OR
 
 14. kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.31.3/manifests/calico.yaml
-15. watch kubectl get pods -l k8s-app=calico-node -A
+15. watch kubectl get pods -l k8s-app=calico-node -
+
+<P> Storage & Volume:
+
+1. kubectl apply -f redis.yml
+2. kubectl get po
+3. kubectl exec -it redis-pod -- sh
+4. 
